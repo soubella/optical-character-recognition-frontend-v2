@@ -13,7 +13,8 @@ export class UsersComponent implements OnInit {
   users:User[];
   ngOnInit() {
     this.userService.getUsersList().subscribe(data => {
-      this.users=data;
+      let json=JSON.parse(JSON.stringify(data));
+      this.users=json._embedded.users;
       console.log(this.users)
     });
   }

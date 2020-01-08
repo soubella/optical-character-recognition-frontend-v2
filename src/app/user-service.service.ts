@@ -78,7 +78,7 @@ export class UserServiceService {
   }
 
   getUsersList() {
-    return this.http.get<User[]>(`${this.userUrl}`);
+    return this.http.get<User[]>(`${this.baseUrl}`);
   }
 
   getFilesList() {
