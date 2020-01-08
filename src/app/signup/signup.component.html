@@ -1,0 +1,96 @@
+<main>
+  <section class="section section-shaped section-lg">
+    <div class="shape shape-style-1 bg-gradient-default">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="container pt-lg-md">
+      <div class="row justify-content-center">
+        <div class="col-lg-5">
+          <div class="card bg-secondary shadow border-0"> 
+            <div class="card-body px-lg-5 py-lg-5">
+              <div class="text-center text-muted mb-4">
+                <small>Sign up with credentials</small>
+              </div>
+              <form #myform="ngForm" (ngSubmit)="register(myform)">
+                <div class="form-group">
+                  <label for="plan">Select you plan</label>
+                  <select name = "plan" class="form-control" ngModel>
+                    <option value="1" selected="selected">Basic</option>
+                    <option value="2">Plus</option>
+                    <option value="3">Pro</option>
+                  </select>
+                </div>
+                <div class="form-group" [ngClass]="{'focused':focus===true}">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
+                    </div>
+                    <input class="form-control" name = "firstName" placeholder="FirstName" type="text" (focus)="focus=true" (blur)="focus=false" ngModel>
+                  </div>
+                </div>
+                <div class="form-group" [ngClass]="{'focused':focus===true}">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
+                    </div>
+                    <input class="form-control" name = "lastName" placeholder="lastName" type="text" (focus)="focus=true" (blur)="focus=false" ngModel>
+                  </div>
+                </div>
+                <div class="form-group" [ngClass]="{'focused':focus===true}">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-building"></i></span>
+                    </div>
+                    <input class="form-control" name = "company" placeholder="Company" type="text" (focus)="focus=true" (blur)="focus=false" ngModel>
+                  </div>
+                </div>
+                <div class="form-group" [ngClass]="{'focused':focus1===true}">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                    </div>
+                    <input class="form-control"  name = "email" placeholder="Email" type="email" (focus)="focus1=true" (blur)="focus1=false" ngModel>
+                  </div>
+                </div>
+                <div class="form-group" [ngClass]="{'focused':focus2===true}">
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                    </div>
+                    <input class="form-control"  name = "password" placeholder="Password" type="password" (focus)="focus2=true" (blur)="focus2=false" ngModel>
+                  </div>
+                </div>
+                <div class="row my-4">
+                  <div class="col-12">
+                    <div class="custom-control custom-control-alternative custom-checkbox">
+                      <input class="custom-control-input"  name = "customCheckRegister" id="customCheckRegister" type="checkbox">
+                      <label class="custom-control-label" for="customCheckRegister">
+                        <span>I agree with the
+                          <a href="javascript:void(0)">Privacy Policy</a>
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary mt-4">Create account</button>
+                </div>
+                <br/>
+                <div id="message" class="alert alert-success" role="alert" *ngIf="!isHidden">
+                  <strong>Success!</strong> Account successfully created!
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
