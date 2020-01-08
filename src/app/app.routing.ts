@@ -10,6 +10,7 @@ import { LandingComponent } from './landing/landing.component';
 import { LoginComponent } from './login/login.component';
 import {UsersComponent} from './users/users.component';
 import {FilesComponent} from './files/files.component';
+import {AddFileComponent} from './add-file/add-file.component';
 
 const routes: Routes =[
     { path: 'home',             component: HomeComponent },
@@ -19,6 +20,7 @@ const routes: Routes =[
     { path: 'login',          component: LoginComponent },
     { path: 'users',          component: UsersComponent },
     { path: 'files',          component: FilesComponent },
+    { path: 'add-file',          component: AddFileComponent },
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

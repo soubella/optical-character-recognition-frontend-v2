@@ -1,0 +1,33 @@
+<main>
+  <div class="position-relative">
+      <!-- SVG separator -->
+      <div class="separator separator-bottom separator-skew">
+        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+        </svg>
+      </div>
+    <!-- 1st Hero Variation -->
+  <section class="section pb-0 bg-gradient-warning">
+    <button type="button" routerLink="/files" class="btn btn-primary" style="margin-left: 45%;">Files List</button>
+    <div class="container" style="padding-bottom: 150px;">
+      <div class="card shadow shadow-lg--hover mt-5">
+        <div class="card-body">
+          <form #myform="ngForm" (ngSubmit)="upload(myform)" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="file">Choose you file</label>
+              <input type="file" (change)="fileChange($event)"  name="file" class="form-control-file" id="file" ngModel>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary mt-4">Upload File</button>
+            </div>
+            <br/>
+            <div id="message" class="alert alert-success" role="alert" *ngIf="!isHidden">
+              <strong>Success!</strong> File successfully Uploaded!
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</main> 

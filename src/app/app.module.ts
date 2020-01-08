@@ -21,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardNavbarComponent } from './dashboard-navbar/dashboard-navbar.component';
 import { UsersComponent } from './users/users.component';
 import { FilesComponent } from './files/files.component';
+import { AddFileComponent } from './add-file/add-file.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FilesComponent } from './files/files.component';
     LoginComponent,
     DashboardNavbarComponent,
     UsersComponent,
-    FilesComponent
+    FilesComponent,
+    AddFileComponent
   ],
   imports: [
     BrowserModule,

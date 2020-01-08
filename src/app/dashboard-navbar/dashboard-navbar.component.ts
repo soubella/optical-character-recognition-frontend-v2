@@ -12,4 +12,9 @@ export class DashboardNavbarComponent implements OnInit {
   ngOnInit() {
   }
 
+  logout(){
+    console.log("logout...");
+    sessionStorage.clear();
+    location.reload();
+  }
 }
