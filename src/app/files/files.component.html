@@ -15,20 +15,23 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th scope="col">#</th>
+                <th scope="col">Ref</th>
                 <th scope="col">Type</th>
                 <th scope="col">Extension</th>
                 <th scope="col">Size</th>
-                <th scope="col">Action</th>
+                <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
+              <tr *ngFor="let file of files">
+                <td class="hidden">{{file.id}}</td>
+                <td>{{file.type}}</td>
+                <td>{{file.extension}}</td>
+                <td>{{file.size}}</td>
+                <td align="center">
+                    <button class="btn btn-danger" >Delete</button>
+                    <button class="btn btn-info" >Info</button>
+                </td>
               </tr>
             </tbody>
           </table>

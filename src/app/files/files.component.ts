@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserServiceService } from "./../user-service.service";
+import { MyFile } from '../my-file';
 
 @Component({
   selector: 'app-files',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilesComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private userService: UserServiceService) { }
+  files:MyFile[];
   ngOnInit() {
+    this.userService.getFilesList().subscribe(data => {
+      this.files=data;
+      console.log(this.files)
+    });
   }
+
 
 }

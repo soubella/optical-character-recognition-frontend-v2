@@ -3,6 +3,7 @@ import { HttpClient,HttpHeaders  } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from './user';
 import { Entreprise } from './entreprise';
+import { MyFile } from './my-file';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,10 +16,10 @@ export class UserServiceService {
   private baseUrl = 'http://localhost:8081/users/';
   private entrepriseBaseUrl = 'http://localhost:8081/entreprises/';
   private uploadUrl = 'http://localhost:8081/upload';
+  private filesUrl = 'http://localhost:8081/files';
+  private userUrl = 'http://localhost:8081/users/list';
 
   constructor(private http: HttpClient) { }
-
-
 
   uploadFile(file){
     let postData = new FormData();
@@ -46,7 +47,7 @@ export class UserServiceService {
       console.log(rep);
     });
   }
-  
+
   getUser(id: number): Observable<any> { 
     return this.http.get(`${this.baseUrl}/${id}`);
   }
@@ -76,7 +77,11 @@ export class UserServiceService {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   }
 
-  getUsersList(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`);
+  getUsersList() {
+    return this.http.get<User[]>(`${this.userUrl}`);
+  }
+
+  getFilesList() {
+    return this.http.get<MyFile[]>(`${this.filesUrl}`);
   }
 }
