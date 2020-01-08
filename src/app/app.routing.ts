@@ -11,6 +11,8 @@ import { LoginComponent } from './login/login.component';
 import {UsersComponent} from './users/users.component';
 import {FilesComponent} from './files/files.component';
 import {AddFileComponent} from './add-file/add-file.component';
+import {FileInfoComponent} from './file-info/file-info.component';
+
 
 const routes: Routes =[
     { path: 'home',             component: HomeComponent },
@@ -21,6 +23,7 @@ const routes: Routes =[
     { path: 'users',          component: UsersComponent },
     { path: 'files',          component: FilesComponent },
     { path: 'add-file',          component: AddFileComponent },
+    { path: 'file-info',          component: FileInfoComponent },
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

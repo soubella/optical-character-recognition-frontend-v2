@@ -84,4 +84,9 @@ export class UserServiceService {
   getFilesList() {
     return this.http.get<MyFile[]>(`${this.filesUrl}`);
   }
+
+  getFileInfo(id){
+    return this.http.get('http://localhost:8081/uploadedFiles/'+id+'/metaData');
+  }
+
 }

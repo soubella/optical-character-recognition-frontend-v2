@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from "./../user-service.service";
 import { MyFile } from '../my-file';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-files',
   templateUrl: './files.component.html',
@@ -9,7 +9,7 @@ import { MyFile } from '../my-file';
 })
 export class FilesComponent implements OnInit {
 
-  constructor(private userService: UserServiceService) { }
+  constructor(private userService: UserServiceService,private router: Router) { }
   files:MyFile[];
   ngOnInit() {
     this.userService.getFilesList().subscribe(data => {
@@ -18,5 +18,8 @@ export class FilesComponent implements OnInit {
     });
   }
 
+  fileInfo(id){
+    this.router.navigate(['file-info'],{ state: { id: id } });
+  }
 
 }

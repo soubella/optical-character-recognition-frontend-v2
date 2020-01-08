@@ -22,6 +22,7 @@ import { DashboardNavbarComponent } from './dashboard-navbar/dashboard-navbar.co
 import { UsersComponent } from './users/users.component';
 import { FilesComponent } from './files/files.component';
 import { AddFileComponent } from './add-file/add-file.component';
+import { FileInfoComponent } from './file-info/file-info.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AddFileComponent } from './add-file/add-file.component';
     DashboardNavbarComponent,
     UsersComponent,
     FilesComponent,
-    AddFileComponent
+    AddFileComponent,
+    FileInfoComponent
   ],
   imports: [
     BrowserModule,
