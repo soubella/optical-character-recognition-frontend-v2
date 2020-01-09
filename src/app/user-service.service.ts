@@ -14,6 +14,9 @@ const httpOptions = {
 export class UserServiceService {
 
   private baseUrl = 'http://localhost:8081/users/';
+  private baseUrl2 = 'http://localhost:8081/users/api';
+  private baseUrl3 = 'http://localhost:8081/userdel/';
+
   private entrepriseBaseUrl = 'http://localhost:8081/entreprises/';
   private roleBaseUrl = 'http://localhost:8081/roles/';
   private uploadUrl = 'http://localhost:8081/upload';
@@ -78,11 +81,11 @@ export class UserServiceService {
   }
 
   deleteUser(id: number){
-     this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
+     this.http.get(`${this.baseUrl}${id}`);
   }
 
   getUsersList() {
-    return this.http.get<User[]>(`${this.baseUrl}`);
+    return this.http.get<User[]>(`${this.baseUrl2}`);
   }
 
   getFilesList() {

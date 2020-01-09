@@ -13,10 +13,17 @@ export class UsersComponent implements OnInit {
   users:User[];
   ngOnInit() {
     this.userService.getUsersList().subscribe(data => {
-      let json=JSON.parse(JSON.stringify(data));
-      this.users=json._embedded.users;
+     // let json=JSON.parse(JSON.stringify(data));
+    //  this.users=json._embedded.users;
+      this.users=data;
       console.log(this.users)
     });
+  }
+  deleteUser(id)
+  {;
+
+    this.userService.deleteUser(id);
+    location.reload();
   }
 
 }
