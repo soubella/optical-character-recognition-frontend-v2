@@ -44,7 +44,7 @@ export class UserServiceService {
         sessionStorage.setItem('entreprise',splitted[1]);
         sessionStorage.setItem('email',user.email);
       }
-      console.log(rep);
+      console.log("error is :"+rep);
     });
   }
 
