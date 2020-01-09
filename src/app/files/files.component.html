@@ -29,7 +29,7 @@
                 <td>{{file.extension}}</td>
                 <td>{{file.size}}</td>
                 <td align="center">
-                    <button class="btn btn-danger" >Delete</button>
+                    <button class="btn btn-danger" (click)="deleteFile(file.id)">Delete</button>
                     <button class="btn btn-info" (click)="fileInfo(file.id)" >Info</button>
                 </td>
               </tr>

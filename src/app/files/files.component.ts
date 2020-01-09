@@ -12,14 +12,27 @@ export class FilesComponent implements OnInit {
   constructor(private userService: UserServiceService,private router: Router) { }
   files:MyFile[];
   ngOnInit() {
-    this.userService.getFilesList().subscribe(data => {
-      this.files=data;
-      console.log(this.files)
-    });
+    this.getData();
+
   }
 
   fileInfo(id){
     this.router.navigate(['file-info'],{ state: { id: id } });
   }
+  async deleteFile(id)
+  {
+    await  this.userService.deleteFile(id);
+    await  this.getData();
+    this.getData();
 
+  }
+
+  getData()
+  {
+    this.userService.getFilesList().subscribe(data => {
+      this.files=data;
+      console.log(this.files)
+    });
+
+  }
 }

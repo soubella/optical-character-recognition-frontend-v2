@@ -28,8 +28,8 @@ roles : any[];
   }
   adduser(form){
     let data = form.value;
-    this.user.firstName=data.firstName;
-    this.user.lastName=data.lastName;
+    this.user.firstName=data.firstname;
+    this.user.lastName=data.lastname;
     this.user.email=data.email;
     this.user.password=data.password;
     this.user.entreprise=Number("http://localhost:8081/entreprises/"+data.entreprise);

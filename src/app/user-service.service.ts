@@ -16,7 +16,7 @@ export class UserServiceService {
   private baseUrl = 'http://localhost:8081/users/';
   private baseUrl2 = 'http://localhost:8081/users/api';
   private baseUrl3 = 'http://localhost:8081/userdel/';
-
+  private baseUrl4 = 'http://localhost:8081/filedel/';
   private entrepriseBaseUrl = 'http://localhost:8081/entreprises/';
   private roleBaseUrl = 'http://localhost:8081/roles/';
   private uploadUrl = 'http://localhost:8081/upload';
@@ -43,7 +43,7 @@ export class UserServiceService {
     this.http.post(`${this.baseUrl}login`, postData,{responseType:'text'}).subscribe(rep => {
       if(rep!="NO"){
 
-        var splitted = rep.split("-", 2); 
+        var splitted = rep.split("-", 2);
         sessionStorage.setItem('id',splitted[0]);
         sessionStorage.setItem('entreprise',splitted[1]);
         sessionStorage.setItem('email',user.email);
@@ -80,8 +80,19 @@ export class UserServiceService {
     return this.http.put(`${this.baseUrl}/${id}`, value);
   }
 
-  deleteUser(id: number){
-     this.http.get(`${this.baseUrl}${id}`);
+  deleteUser(id: number) : boolean{
+     this.http.get(`${this.baseUrl3}${id}`).subscribe(rep => {
+       console.log('deleting user');
+        return true ;
+    });
+  return false ;
+  }
+  deleteFile(id: number) : boolean{
+    this.http.get(`${this.baseUrl4}${id}`).subscribe(rep => {
+      console.log('deleting file');
+      return true ;
+    });
+    return false ;
   }
 
   getUsersList() {
