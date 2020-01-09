@@ -12,7 +12,7 @@ import {UsersComponent} from './users/users.component';
 import {FilesComponent} from './files/files.component';
 import {AddFileComponent} from './add-file/add-file.component';
 import {FileInfoComponent} from './file-info/file-info.component';
-
+import { AddUserComponent } from './add-user/add-user.component';
 
 const routes: Routes =[
     { path: 'home',             component: HomeComponent },
@@ -24,6 +24,7 @@ const routes: Routes =[
     { path: 'files',          component: FilesComponent },
     { path: 'add-file',          component: AddFileComponent },
     { path: 'file-info',          component: FileInfoComponent },
+    { path: 'add-user',          component: AddUserComponent },
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

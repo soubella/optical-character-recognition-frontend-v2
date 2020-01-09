@@ -23,6 +23,7 @@ import { UsersComponent } from './users/users.component';
 import { FilesComponent } from './files/files.component';
 import { AddFileComponent } from './add-file/add-file.component';
 import { FileInfoComponent } from './file-info/file-info.component';
+import { AddUserComponent } from './add-user/add-user.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { FileInfoComponent } from './file-info/file-info.component';
     UsersComponent,
     FilesComponent,
     AddFileComponent,
-    FileInfoComponent
+    FileInfoComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,

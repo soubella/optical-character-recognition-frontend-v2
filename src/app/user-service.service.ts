@@ -15,6 +15,7 @@ export class UserServiceService {
 
   private baseUrl = 'http://localhost:8081/users/';
   private entrepriseBaseUrl = 'http://localhost:8081/entreprises/';
+  private roleBaseUrl = 'http://localhost:8081/roles/';
   private uploadUrl = 'http://localhost:8081/upload';
   private filesUrl = 'http://localhost:8081/files';
   private userUrl = 'http://localhost:8081/users/list';
@@ -35,14 +36,16 @@ export class UserServiceService {
     let postData = new FormData();
     postData.append('email' , user.email);
     postData.append('password' , user.password);
+    console.log("login ...");
     this.http.post(`${this.baseUrl}login`, postData,{responseType:'text'}).subscribe(rep => {
       if(rep!="NO"){
-        console.log("login ok");
-        console.log(rep);
+
         var splitted = rep.split("-", 2); 
         sessionStorage.setItem('id',splitted[0]);
         sessionStorage.setItem('entreprise',splitted[1]);
         sessionStorage.setItem('email',user.email);
+        console.log(user.email);
+        console.log(sessionStorage.getItem('email'));
       }
       console.log("error is :"+rep);
     });
@@ -52,8 +55,9 @@ export class UserServiceService {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  createUser(user: Object): Observable<Object> {;
-    return this.http.post<User>(`${this.baseUrl}`, user);
+  createUser(user: User){
+    this.http.post<User>(`${this.baseUrl}`, user,httpOptions).subscribe(rep => {
+    });
   }
 
   createAdmin(user: User){
@@ -73,8 +77,8 @@ export class UserServiceService {
     return this.http.put(`${this.baseUrl}/${id}`, value);
   }
 
-  deleteUser(id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
+  deleteUser(id: number){
+     this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   }
 
   getUsersList() {
@@ -96,6 +100,12 @@ export class UserServiceService {
     this.http.post(`${this.baseUrl}mail`, postData,{responseType:'text'}).subscribe(rep => {
       console.log(rep);
     });
+  }
+  getEntreprises() {
+    return this.http.get(`${this.entrepriseBaseUrl}`);
+  }
+  getRoles() {
+    return this.http.get(`${this.roleBaseUrl}`);
   }
 
 }
