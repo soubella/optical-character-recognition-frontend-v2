@@ -89,4 +89,13 @@ export class UserServiceService {
     return this.http.get('http://localhost:8081/uploadedFiles/'+id+'/metaData');
   }
 
+  sendMail(email){
+    let postData = new FormData();
+    postData.append('email' , email);
+    postData.append('fileId' , "1");
+    this.http.post(`${this.baseUrl}mail`, postData,{responseType:'text'}).subscribe(rep => {
+      console.log(rep);
+    });
+  }
+
 }

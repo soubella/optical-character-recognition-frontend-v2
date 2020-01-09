@@ -25,4 +25,9 @@ export class FileInfoComponent implements OnInit {
 
   }
 
+  sendMail(form){
+    let data = form.value;
+    this.userService.sendMail(data.email);
+  }
+
 }

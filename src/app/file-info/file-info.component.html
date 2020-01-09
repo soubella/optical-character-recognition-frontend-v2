@@ -9,10 +9,10 @@
     <!-- 1st Hero Variation -->
   <section class="section pb-0 bg-gradient-warning">
     <button type="button" class="btn btn-primary" style="margin-left: 45%;">Add MetaData</button>
-    <div class="container" style="padding-bottom: 150px;">
+    <div class="container" style="padding-bottom: 5px;">
       <div class="card shadow shadow-lg--hover mt-5">
         <div class="card-body">
-          <div *ngFor="let metadata of metadatas">
+          <div>
             <table class="table table-striped">
               <thead>
                 <tr>
@@ -39,6 +39,28 @@
         </div>
       </div>
     </div>
+
+    <div class="container" style="padding-bottom: 150px;">
+      <div class="card shadow shadow-lg--hover mt-5">
+        <div class="card-body">
+          <form #myform="ngForm" (ngSubmit)="sendMail(myform)">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" ngModel>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary" style="margin-left: 45%;">Send</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>  
+
   </section>
 </div>
 </main> 
