@@ -5,6 +5,6 @@ export class User {
     email: string;
     password: string;
     state: boolean;
-    entreprise: number;
+    entreprise: string;
     role: string;
 }

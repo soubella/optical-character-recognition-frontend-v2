@@ -34,14 +34,16 @@ roles : any[];
     this.user.lastName=data.lastname;
     this.user.email=data.email;
     let state = "/true";
-    this.http.get(`${this.baseUrl}${data.email}${data.email}`).subscribe(rep => {
+    this.http.get(`${this.baseUrl}${data.email}${state}`,{responseType:'text'}).subscribe(rep => {
       console.log(rep);
       this.user.password=rep.toString();
+      this.user.entreprise= "http://localhost:8081/entreprises/"+sessionStorage.getItem("entreprise");
+      this.user.role="http://localhost:8081/roles/"+data.role;;
+      console.log(this.user);
+      this.userService.createUser(this.user);
+      location.reload();
     });
-    this.user.entreprise=data.entreprise;
-    this.user.role=data.role;
-    this.userService.createUser(this.user);
-    location.reload();
+    
   }
 
 }

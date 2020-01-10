@@ -26,7 +26,7 @@
                 <input type="text"   name="email" class="form-control" id="email" ngModel>
               </div>
 
-              <div class="form-group">
+              <div class="form-group" hidden>
                 <label for="entreprise">Select Etreprise</label>
                 <select name = "entreprise" class="form-control" ngModel>
                   <option *ngFor="let ent of this.entreprises ; index as i" [value]="i+1">

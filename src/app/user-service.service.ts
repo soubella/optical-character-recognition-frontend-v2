@@ -96,7 +96,8 @@ export class UserServiceService {
   }
 
   getUsersList() {
-    return this.http.get<User[]>(`${this.baseUrl2}`);
+    let id = sessionStorage.getItem("entreprise");
+    return this.http.get<User[]>(`${this.baseUrl2}/${id}`);
   }
 
   getFilesList() {
