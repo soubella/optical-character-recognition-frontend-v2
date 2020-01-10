@@ -17,7 +17,10 @@ export class LoginComponent implements OnInit {
     let data = form.value;
     this.user.email=data.email;
     this.user.password=data.password;
-    this.userService.login(this.user);
-    location.replace('home');
+    await this.userService.login(this.user);
+     setInterval(() => {
+         location.reload();
+     }, 2000);
+
   }
 }

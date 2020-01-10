@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from "./../user-service.service";
 import {Entreprise} from "../entreprise";
 import {User} from "../user";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-add-user',
@@ -12,7 +13,8 @@ export class AddUserComponent implements OnInit {
 entreprises : any[];
 roles : any[];
   user: User = new User();
-  constructor(public userService : UserServiceService) { }
+  baseUrl="http://localhost:8081/user_pass/";
+  constructor(private http: HttpClient , public userService : UserServiceService) { }
 
   ngOnInit() {
     this.userService.getEntreprises().subscribe(data => {
@@ -31,9 +33,13 @@ roles : any[];
     this.user.firstName=data.firstname;
     this.user.lastName=data.lastname;
     this.user.email=data.email;
-    this.user.password=data.password;
-    this.user.entreprise=Number("http://localhost:8081/entreprises/"+data.entreprise);
-    this.user.role="http://localhost:8081/roles/"+data.role;
+    let state = "/true";
+    this.http.get(`${this.baseUrl}${data.email}${data.email}`).subscribe(rep => {
+      console.log(rep);
+      this.user.password=rep.toString();
+    });
+    this.user.entreprise=data.entreprise;
+    this.user.role=data.role;
     this.userService.createUser(this.user);
     location.reload();
   }
